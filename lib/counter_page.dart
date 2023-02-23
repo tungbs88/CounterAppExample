@@ -24,7 +24,7 @@ class CounterPage extends StatelessWidget {
                     onPressed: () {
                       context
                           .read<CounterBloc>()
-                          .add(CounterIncrementPressed());
+                          .add(CounterEvent.increment);
                     },
                     child: Text(
                       "Increment(+)",
@@ -33,12 +33,14 @@ class CounterPage extends StatelessWidget {
                 decoration: BoxDecoration(color: Colors.greenAccent),
                 margin: EdgeInsets.all(10),
               ),
+              Text("Result: $state",
+                  style: TextStyle(fontSize: 40, color: Colors.blue)),
               Container(
                   child: TextButton(
                       onPressed: () {
                         context
                             .read<CounterBloc>()
-                            .add(CounterDecrementPressed());
+                            .add(CounterEvent.decrement);
                       },
                       child: Text(
                         "Decrement(+)",

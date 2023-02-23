@@ -10,22 +10,10 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  Stream<int> aStreamFunction() async* {
-    yield 2;
-    yield 5;
-    yield 7;
-  }
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final aStream = aStreamFunction();
-    aStream.forEach((element) {
-      print("yield -> $element");
-    });
-
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: "Increment/Decrement Counter App Using Bloc",
       home: BlocProvider<CounterBloc>(
         create: (context) => CounterBloc(),
         child: CounterPage(),
